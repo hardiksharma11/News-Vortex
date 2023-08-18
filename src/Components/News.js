@@ -28,8 +28,8 @@ export class News extends Component {
         this.props.setProgress(30);
         let parsedData = await data.json();
         this.props.setProgress(60);
-        console.log(parsedData);
-        this.setState({ articles: parsedData.value, totalResults: parsedData.totalCount });
+        console.log(parsedData);    
+        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
         this.props.setProgress(100);
 
     }
@@ -108,7 +108,7 @@ export class News extends Component {
                         return <div className='col-md-4' key={e.url} >
                             <NewsItem title={e.title ? e.title : ""}
                                 description={e.description ? e.description.substring(0, 90) : ""}
-                                imgUrl={e.image.url ? e.image.url : "https://www.middleweb.com/wp-content/uploads/2017/08/breaking-news-blue-600.jpg"}
+                                imgUrl={e.urlToImage ? e.urlToImage  : "https://www.middleweb.com/wp-content/uploads/2017/08/breaking-news-blue-600.jpg"}
                                 newsUrl={e.url} />
                         </div>
                     })}
