@@ -14,17 +14,17 @@ export class News extends Component {
     }
 
     async componentDidMount() {
-        const url = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=live&pageNumber=1&pageSize=9&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null';
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '4fa50a5a79msh30dcb9d053fca88p1ef4a4jsn497c21843099',
-                'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
-            }
-        };
-        // let url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=1244f596e7e941db8750db29782da6b5&page=1&pageSize=9';
+        // const url = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=live&pageNumber=1&pageSize=9&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null';
+        // const options = {
+        //     method: 'GET',
+        //     headers: {
+        //         'X-RapidAPI-Key': '4fa50a5a79msh30dcb9d053fca88p1ef4a4jsn497c21843099',
+        //         'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
+        //     }
+        // };
+        let url = 'https://test-news.onrender.com/news';
         this.props.setProgress(10);
-        let data = await fetch(url, options);
+        let data = await fetch(url);
         this.props.setProgress(30);
         let parsedData = await data.json();
         this.props.setProgress(60);
